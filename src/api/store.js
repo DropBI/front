@@ -18,4 +18,20 @@ export async function StoreList() {
     return data;
 }
 
+export async function StoreCreate(name,url) {
+    const token = cookies.get("TOKEN");
+    const { data } = await axios.post(
+        '/store/create',
+        { name, url },
+        {
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+            'x-access-token':token
+        },
+        },
+    );
+    return data;
+}
+
 

@@ -33,6 +33,21 @@ export async function ProductGet(id) {
     return data;
 }
 
+export async function ProductGetSales(id) {
+    const token = cookies.get("TOKEN");
+    const { data } = await axios.get(
+        '/product/sales/' + id,
+        {
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+            'x-access-token':token
+        },
+        },
+    );
+    return data;
+}
+
 export async function ProductGetJson(url) {
     const { data } = await axios.get(
         url,

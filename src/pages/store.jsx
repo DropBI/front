@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {SideBar} from '../components/sidebar'
 import { useHistory } from 'react-router-dom';
-import axios from "axios";
+import { StoreCreate } from '../api/store'
 
 export function Store() {
     const history = useHistory();
@@ -13,18 +13,7 @@ export function Store() {
         // prevent the form from refreshing the whole page
         e.preventDefault();
 
-        // set configurations
-        const configuration = {
-        method: "post",
-        url: "/store/create",
-        data: {
-            name,
-            url,
-        },
-        };
-
-        // make the API call
-        axios(configuration)
+        StoreCreate(name,url)
         .then((result) => {
             // set the cookie
             history.push('/stores');
