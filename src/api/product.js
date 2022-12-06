@@ -33,10 +33,11 @@ export async function ProductGet(id) {
     return data;
 }
 
-export async function ProductGetSales(id) {
+export async function ProductGetSales(order = 'invoice',orderFlow = 'desc') {
     const token = cookies.get("TOKEN");
-    const { data } = await axios.get(
-        '/product/sales/' + id,
+    const { data } = await axios.post(
+        '/product/sales',
+        {order,orderFlow},
         {
         headers: {
             'Content-Type': 'application/json',

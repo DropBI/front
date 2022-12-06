@@ -65,6 +65,7 @@ export function Product() {
                             <p> ultima venda {el.last_update}</p>
                             <p> preco {el.price}</p>
                             <p> Dia {el.day}</p>
+
                         </div>
                     )
                 })}

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ChevronLeftIcon, TwitterLogoIcon, BackpackIcon, ArchiveIcon } from '@radix-ui/react-icons'
 import { useHistory } from "react-router-dom";
 
-export function SideBar()  {
+export function SideBar({className})  {
   const [open, setOpen] = useState(true);
   const history = useHistory();
   const Menus = [
@@ -14,8 +14,8 @@ export function SideBar()  {
   return (
     <div
       className={` ${
-        open ? "w-72" : "w-20 "
-      } bg-dark-purple h-screen p-5  pt-8 relative duration-300`}
+        open ? "w-60" : "w-20 " + className
+      } bg-dark-purple p-5 pt-8 relative duration-300 ` + className}
     >
       <ChevronLeftIcon
         className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
