@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {SideBar} from '../components/sidebar'
 import { useHistory } from 'react-router-dom';
+import NoImg from '../assets/img/noimg.jpg'
 import { ProductGetSales } from "../api/product";
 import { Button, Dropdown, Space, Card } from 'antd';
 import { ChevronDownIcon } from "@radix-ui/react-icons";
@@ -57,7 +58,7 @@ export function Products() {
         <div className="grid grid-flow-row grid-cols-7 grid-rows-6 gap-1 h-screen">
         <SideBar className="col-span-1 row-span-6" />
         <header className="col-start-2 col-span-6 row-span-1">
-          <h1 className="text-2xl font-semibold ">Home Page</h1>
+          <h1 className="text-2xl font-semibold ">Produtos</h1>
         </header>
            
          
@@ -77,17 +78,24 @@ export function Products() {
                 </Space>
             </Card>
         </div>
-        <div className="col-span-6 row-span-4  grid grid-cols-6 grid-rows-2 gap-4">
+        <div className="col-span-6 row-span-4 grid grid-cols-6 gap-4">
           {products && products.map( (el,i) => {
             return(
               <div key={i} className="col-span-1 row-span-1">
               <Card
               hoverable
               style={{ width: '13vw' }}
-              cover={<img alt="example" src={el.img_url} />}
+              cover={
+                <img 
+                  src={el.img_url} 
+                  // src="https://thumbs.dreamstime.com/b/flat-isolated-vector-eps-illustration-icon-minimal-design-long-shadow-product-not-available-icon-117825338.jpg" 
+                  alt="img"
+                />
+              }
               >
                 <p className="font-bold">{el.name.substring(0,20)}</p><br/>
                 <p>Total de Vendas: {el.totalsale}</p>
+                <p>id: {el.id}</p>
                 <p>Preço Médio: {formatter.format(el.price)}</p>
                 <p>Faturamento: <strong>{formatter.format(el.invoice)}</strong></p>
               </Card>

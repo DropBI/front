@@ -17,12 +17,12 @@ export function SideBar({className})  {
         open ? "w-60" : "w-20 " + className
       } bg-dark-purple p-5 pt-8 relative duration-300 ` + className}
     >
-      <ChevronLeftIcon
+      {/* <ChevronLeftIcon
         className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
           border-2 rounded-full  ${!open && "rotate-180"}`}
         onClick={() => setOpen(!open)}
         alt="arrow-left"
-      />
+      /> */}
       <div className="flex gap-x-4 items-center">
         <TwitterLogoIcon
           className={`cursor-pointer duration-500 ${

@@ -37,8 +37,7 @@ export function Login() {
   };
 
   return (
-    <div className="flex flex-row justify-center items-center h-screen w-screen">
-      <form onSubmit={(e) => handleSubmit(e)} className="">
+      <form onSubmit={(e) => handleSubmit(e)} className="flex flex-row justify-center items-center h-screen w-screen">
         <input
           type="email"
           name="email"
@@ -63,6 +62,5 @@ export function Login() {
         </button>
 
       </form>
-    </div>
   );
 }
